@@ -1,3 +1,4 @@
+import { renderPlayList } from "./render/renderPlayList.module.js";
 const playlists = [
   {
     playlistId: "1",
@@ -99,42 +100,6 @@ const playlists = [
     ],
   },
 ];
-//const playlistCoverEl = document.createElement("img");
-//playlistCoverEl.src = playlist.coverImageUrl;
-//playlistCoverEl.style.width = "100px";
-//document.body.append(playlistCoverEl);
-//
-//const track1_E2 = document.createElement("li");
-//track1_E2.append(
-//playlist.track[1].artistName + ": " + playlist.track[1].trackTitle
-//);
-//trackListEl.append(track1_El, track1_E2);
-
-//const trackListEl = document.createElement("ul");
-//document.body.append(trackListEl);
-//const track1_El = document.createElement("li");
-
-function renderPlayList(anyPlayList) {
-  renderPlayListHeader(anyPlayList.playListInfo);
-  for (let i = 0; i < anyPlayList.track.length; i++) {
-    renderTrack(anyPlayList.track[i]);
-  }
-}
-
-function renderTrack(anyTrack) {
-  const track1_El = document.createElement("div");
-  const coverTrack = document.createElement("img");
-  coverTrack.src = anyTrack.trackCoverImageUrl;
-  coverTrack.style.width = "50px";
-  track1_El.append(coverTrack);
-  const nameTrack1_El = document.createElement("p");
-  nameTrack1_El.append(anyTrack.artistName + ": " + anyTrack.trackTitle);
-  track1_El.append(nameTrack1_El);
-  const audioTrack = document.createElement("audio");
-  audioTrack.controls = true;
-  const sourceTrack = document.createElement("source");
-  sourceTrack.src = anyTrack.trackFileUrl;
-  audioTrack.append(sourceTrack);
-  track1_El.append(audioTrack);
-  document.body.append(track1_El);
+for (let i = 0; i < playlists.length; i++) {
+  renderPlayList(playlists[i]);
 }
